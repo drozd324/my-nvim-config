@@ -53,7 +53,7 @@ require("lazy").setup({
         local configs = require("nvim-treesitter.configs")
   
         configs.setup({
-            ensure_installed = { "c", "lua", "vim", "vimdoc", "query",  "javascript", "html" },
+            ensure_installed = { "c", "cpp", "python", "lua", "html" },
             sync_install = false,
             highlight = { enable = true },
             indent = { enable = true },  
@@ -61,18 +61,17 @@ require("lazy").setup({
       end
 	},
 
+
 	{
-      "mason-org/mason.nvim",
-      opts = {
-        ui = {
-          icons = {
-            package_installed = "✓",
-            package_pending = "➜",
-            package_uninstalled = "✗"
-          }
-        }
-      }
-	}
+	 "mason-org/mason-lspconfig.nvim",
+    opts = {
+        ensure_installed = { "lua_ls", "rust_analyzer" },
+    },
+    dependencies = {
+        { "mason-org/mason.nvim", opts = {} },
+        "neovim/nvim-lspconfig",
+    },
+	},
   },
 
   -- Configure any other settings here. See the documentation for more details.
