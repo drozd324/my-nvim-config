@@ -24,46 +24,46 @@ vim.g.maplocalleader = "\\"
 -- Setup lazy.nvim
 require("lazy").setup({
   spec = {
-	{
-	  'everviolet/nvim', name = 'evergarden',
-	  priority = 1000, -- Colorscheme plugin is loaded first before any other plugins
-	  opts = {
-		theme = {
-		  variant = 'fall', -- 'winter'|'fall'|'spring'|'summer'
-		  accent = 'green',
-		},
-		editor = {
-		  transparent_background = false,
-		  sign = { color = 'none' },
-		  float = {
-			color = 'mantle',
-			invert_border = false,
-		  },
-		  completion = {
-			color = 'surface0',
-		  },
-		},
-	  }
-	},
+    {
+      'everviolet/nvim', name = 'evergarden',
+      priority = 1000, -- Colorscheme plugin is loaded first before any other plugins
+      opts = {
+        theme = {
+          variant = 'fall', -- 'winter'|'fall'|'spring'|'summer'
+          accent = 'green',
+        },
+        editor = {
+          transparent_background = false,
+          sign = { color = 'none' },
+          float = {
+            color = 'mantle',
+            invert_border = false,
+          },
+          completion = {
+            color = 'surface0',
+          },
+        },
+      }
+    },
 
-	{
+    {
       "nvim-treesitter/nvim-treesitter",
       build = ":TSUpdate",
-      config = function () 
+      config = function ()
         local configs = require("nvim-treesitter.configs")
-  
+
         configs.setup({
             ensure_installed = { "c", "cpp", "python", "lua", "html" },
             sync_install = false,
             highlight = { enable = true },
-            indent = { enable = true },  
+            indent = { enable = true },
           })
       end
-	},
+    },
 
 
-	{
-	 "mason-org/mason-lspconfig.nvim",
+    {
+     "mason-org/mason-lspconfig.nvim",
     opts = {
         ensure_installed = { "lua_ls", "rust_analyzer" },
     },
@@ -71,7 +71,7 @@ require("lazy").setup({
         { "mason-org/mason.nvim", opts = {} },
         "neovim/nvim-lspconfig",
     },
-	},
+    },
   },
 
   -- Configure any other settings here. See the documentation for more details.
@@ -83,13 +83,13 @@ require("lazy").setup({
 
 vim.cmd("colorscheme evergarden")
 
-vim.o.termguicolors = true
-vim.opt.termguicolors = true
-vim.opt.number = true
-vim.opt.relativenumber = true
-vim.cmd [[
-  highlight LineNr guifg=#444444
-]]
+--vim.o.termguicolors = true
+--vim.opt.termguicolors = true
+--vim.opt.number = true
+--vim.opt.relativenumber = true
+--vim.cmd [[
+--  highlight LineNr guifg=#444444
+--]]
 
 vim.o.laststatus = 0
 vim.opt.clipboard = "unnamedplus"
